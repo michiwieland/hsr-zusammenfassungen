@@ -9,6 +9,6 @@ Ich übernehme keine Haftung über die Korrektheit und Vollständigkeit der Inha
  * "THE BEER-WARE LICENSE" (Revision 42):
  * <michi.wieland@hotmail.com> wrote this file. As long as you retain this notice you
  * can do whatever you want with this stuff. If we meet some day, and you think
- * this stuff is worth it, you can buy me a beer in return Michael Wieland
+ * this stuff is worth it, you can buy me a beer in return. Michael Wieland
  * ----------------------------------------------------------------------------
  */
