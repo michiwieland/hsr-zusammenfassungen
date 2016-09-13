@@ -1,0 +1,37 @@
+% pdf metadata
+\hypersetup{
+	pdfauthor={\AUTHOR},
+	pdftitle={\SUBJECT \TITLE},
+	pdfcopyright={\LICENSE},
+	pdflicenseurl={\LICENSEURL}
+}
+
+\begin{document}
+	
+% Front page
+\title{\TITLE}
+\subject{\SUBJECT}
+\author{\AUTHOR}
+\affil{\INSTITUTE}
+\date{\today}
+\maketitle
+
+\vfill
+
+% Participate
+\paragraph{Mitmachen} \hfill \\
+Falls Du an diesem Dokument mitarbeiten willst, kannst Du das Dokument
+auf GitHub unter \url{\GITHUB} forken.
+
+% Licence
+\paragraph{Lizenz} \hfill \\
+\LICENSE
+
+% Table of contents
+\tableofcontents
+
+
+% Glossar and acronyms (if included \loadglsentries{glossar})
+\printglossary[type=\acronymtype]
+\printglossary
+\glsaddall

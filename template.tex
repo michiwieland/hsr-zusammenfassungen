@@ -1,0 +1,128 @@
+\documentclass[
+a4paper,
+oneside,
+10pt,
+fleqn,
+headsepline,
+toc=listofnumbered, 
+bibliography=totocnumbered]{scrartcl}
+
+% deutsche Trennmuster etc.
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english, ngerman]{babel} % \selectlanguage{english} if  needed
+\usepackage{lmodern} % use modern latin fonts
+
+% Custom commands
+\newcommand{\AUTHOR}{Michael Wieland}
+\newcommand{\INSTITUTE}{Hochschule für Technik Rapperswil}
+\newcommand{\GITHUB}{https://github.com/michiwieland/hsr-zusammenfassungen}
+\newcommand{\LICENSEURL}{https://en.wikipedia.org/wiki/Beerware}
+\newcommand{\LICENSE}{
+"THE BEER-WARE LICENSE" (Revision 42):
+<michi.wieland@hotmail.com> wrote this file. As long as you retain this notice you
+can do whatever you want with this stuff. If we meet some day, and you think
+this stuff is worth it, you can buy me a beer in return. Michael Wieland	
+}
+
+% Jede Überschrift 1 auf neuer Seite
+\let\stdsection\section
+\renewcommand\section{\clearpage\stdsection}
+
+% Multiple Authors
+\usepackage{authblk}
+
+% Layout / Seitenränder
+\usepackage{geometry}
+
+% Inhaltsverzeichnis
+\usepackage{makeidx} 
+\makeindex
+
+\usepackage{url}
+\usepackage[pdfborder={0 0 0}]{hyperref}
+\usepackage[all]{hypcap}
+\usepackage{hyperxmp} % for license metadata
+
+% Glossar und Abkürzungsverzeichnis
+\usepackage[acronym,toc,nopostdot]{glossaries}
+\glossarystyle{altlisthypergroup}
+\usepackage{xparse}
+\DeclareDocumentCommand{\newdualentry}{ O{} O{} m m m m } {
+	\newglossaryentry{gls-#3}{name={#5},text={#5\glsadd{#3}},
+		description={#6},#1
+	}
+	\makeglossaries
+	\newacronym[see={[Siehe:]{gls-#3}},#2]{#3}{#4}{#5\glsadd{gls-#3}}
+}
+\makeglossaries
+
+% Mathematik
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{enumitem}
+
+% Images
+\usepackage{graphicx}
+\graphicspath{{images/}} % default paths
+
+% Boxes
+\usepackage{fancybox}
+
+%Tables
+\usepackage{tabu}
+\usepackage{booktabs} % toprule, midrule, bottomrule
+\usepackage{array} % for matrix tables
+
+% Multi Columns
+\usepackage{multicol}
+
+% Header and footer
+\usepackage{scrlayer-scrpage}
+\setkomafont{pagehead}{\normalfont}
+\setkomafont{pagefoot}{\normalfont}
+\automark*{section}
+\clearpairofpagestyles
+\ihead{\headmark}
+\ohead{\AUTHOR}
+\cfoot{\pagemark}
+
+% Pseudocode
+\usepackage{algorithm}
+\usepackage{algorithmic}
+
+% Code Listings
+\usepackage{listings}
+\usepackage{color}
+\usepackage{beramono}
+
+\definecolor{DarkPurple}{rgb}{0.4, 0.1, 0.4}
+\definecolor{DarkCyan}{rgb}{0.0, 0.5, 0.4}
+\definecolor{LightLime}{rgb}{0.3, 0.5, 0.4}
+\definecolor{Blue}{rgb}{0.0, 0.0, 1.0}
+
+\lstdefinestyle{eclipse-style}{
+	language=Java,  
+	columns=flexible,
+	showstringspaces=false,     
+	basicstyle=\footnotesize\ttfamily, 
+	keywordstyle=\bfseries\color{DarkPurple},
+	commentstyle=\color{LightLime},
+	stringstyle=\color{Blue}, 
+	escapeinside={£}{£}, % latex scope within code      
+	morekeywords={length},
+	numbers=left,
+	numberstyle=\tiny\color{black},
+	frame=single,
+}
+\lstset{style=eclipse-style}
+
+
+% Theorems \begin{mytheo}{title}{label}
+\usepackage{tcolorbox}
+\tcbuselibrary{theorems}
+\newtcbtheorem[number within=section]{definiton}{Definition}%
+{fonttitle=\bfseries}{def}
+\newtcbtheorem[number within=section]{remember}{Merke}%
+{fonttitle=\bfseries}{rem}

@@ -1,0 +1,62 @@
+% Glossar and acronyms
+\newdualentry{cp}
+{CP}
+{Control Plane}
+{
+	Die Control Plane definiert die Logik wie der Verkehr weitergeleitet wird. Sie wird softwaremässig gesteuert (Protokolle, Virtuelle Switches, Virtuelle Router)
+}
+
+\newdualentry{dp}
+{DP}
+{Data Plane / Forwarding Plane}
+{
+	Die Data Plane leitet die pakete anhand der Logik in der Control Plane weiter. Sie ist die Hardware (Switches, Router)
+}
+
+\newdualentry{dte}
+{DTE}
+{Data Terminal Equipment}
+{Client Router}
+
+\newdualentry{dce}
+{DCE}
+{Data Communication Equipment}
+{Modem}
+
+\newdualentry{dslam}
+{DSLAM}
+{Digital Subscriber Line Access Multiplexer}
+{Ist die Vermittlungsstelle zwischen mehrere Endkunden (DSL Anschlüsse) und dem Provider.}
+
+\newdualentry{iana}
+{IANA}
+{Internet Assigned Numbers Authority}
+{Eine Organisation die für die globale Koordination von IP-Adressen zuständig ist. Zudem registriert die IANA viele in Spezifikationen von Netzwerkprotokollen enthaltene Codecs (z.B Ports)}
+
+\newdualentry{rir}
+{RIR}
+{Regional Internet Registrar}
+{Ist für die Verteilung von IP-Adressen innerhalb einer Region zuständig und erhält von der IANA einen definierten Adressrange. Für Europa ist die RIPE der RIR.}
+
+\newdualentry{ripe}
+{RIPE}
+{Réseaux IP Européens Network Coordination Centre}
+{Zuständig für die Vergabe von IP-Adressbereichen und AS-Nummern in Europa}
+
+\newdualentry{icann}
+{ICANN}
+{Internet Corporation for Assigned Names and Numbers}
+{Koordiniert die Vergabe von einmaligen Namen und Adressen im Internet (DNS)}
+
+% Glossar entries
+\newglossaryentry{gls-cos}
+{
+	name={verbindungsorientierter Dienst},
+	description={Bei einem verbindungsorientierten Dienst wird im vorhinein eine Verbindung aufgebaut (z.B TCP, Frame Relay) Dabei werden immer die drei Phasen Verbindungsaufbau, Datenübertragung und Verbindungsabbau durchlaufen. }
+}
+
+\newglossaryentry{gls-cls}
+{
+	name={verbindungsloser Dienst},
+	description={Ein verbindungsloser Dienst startet dagegen direkt mit der Übertragung von Daten. (z.B UDP, Ethernet)}
+}
