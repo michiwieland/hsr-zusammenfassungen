@@ -1,0 +1,209 @@
+% Glossar and acronyms
+\newdualentry{dss} 
+{DSS}
+{Digital Signature Standard}
+{
+	Enthält DSA, RSA-Signatur und ECDSA
+}
+
+\newdualentry{dsa} 
+{DSA}
+{Digital Signature Algorithm}
+{
+	Von der NSA entworfener Standard für Digitale Signaturen
+}
+
+\newdualentry{ecdsa}
+{ECDSA}
+{Elliptic Curve DSA}
+{
+	Eine Variante des DSA, der Elliptische Kurven verwendet. Die Schlüsselstärke sollte etwa Doppelt so gross sein, wie die benötigte Sicherniveau.
+}
+
+\newdualentry{sha}
+{SHA}
+{Secure Hash Algorithm}
+{
+	Bezeichnet eine Gruppe standardisierter Hashfunktionen.
+}
+
+\newdualentry{aes}
+{AES}
+{Advanced Encryption Standard}
+{
+	Ist eine Blockchiffre für die symmetrische Verschlüsselung. Gilt als Nachfolger von DES.
+}
+
+\newdualentry{aead}
+{AEAD}
+{Authenticated Encryption with Associated Data}
+{
+	Ist eine Kategorie von Betriebsmodi von Blockchiffren, die Hashing und Verschlüsselung ermöglichen. (Garantieren Veraulichkeit, Authentizität und Integrität)
+}
+
+\newdualentry{gcm}
+{GCM}
+{Galois Counter Mode}
+{
+	Ist ein Betriebsmodus von Blockchiffren mit hohem Datendurchsatz (mögliche Parallelisierung) und gratis Integrität (Checksumme)
+}
+
+
+\newdualentry{rsa}
+{RSA}
+{Rivest Shamir Adleman}
+{
+	Ist ein asymmetrisches kryptographisches Verfahren, das sowohl zum Verschlüsseln als auch zum digitalen Signieren verwendet werden kann.
+}
+
+\newdualentry{gmac}
+{GMAC}
+{Galois Message Authentication Code}
+{
+	AES GCM Modus wobei keine Daten verschlüsselt, sondern nur die Integritätsprüfung durchlaufen wird.
+}
+
+\newdualentry{ctr}
+{CTR}
+{Counter Block Mode}
+{
+	IV wird für jedes Chiffrat mit einer neuen Nonce verknüpft.
+}
+
+\newdualentry{nonce}
+{Nonce}
+{Number used Once}
+{
+	Number used Once
+}
+
+\newdualentry{cbc}
+{CBC}
+{Cipher Block Chaining}
+{
+	Bei diesem Modus fliesst das Ergebnis der Verschlüsselung früherer Blöcke in die Verschlüsselung des aktuellen Blockes mit ein
+}
+
+
+\newdualentry{ike}
+{IKE}
+{Internet Key Exchange}
+{
+	Protokoll, welches für den Aufbau einer SA zuständig ist. IKE verwendet X.509 Zertifikate für die Authentifizierung und Diffie–Hellman um einen Shared Session Key auszutauschen.
+}
+
+\newdualentry{pstn}
+{PSTN}
+{Public Switched Telephone Network}
+{
+	Öffentliches Telefonsystem.
+}
+
+\newdualentry{eap}
+{EAP}
+{Extensible Authentication Protocol}
+{
+	Ist ein einheitliches Verfahren für die Authentifizierung (Einwahl in ein fremdes Netzwerk.). Bietet unterschiedliche Authentifizierungsverfahren wie z.B Username/Pw (RADIUS), Zertifikate und SIM Karte zur Verfügung. Findet unter anderem Anwendung bei VPN, WLAN und RADIUS. Ist eine Erweiterung von PPP
+}
+
+\newdualentry{peap}
+{PEAP}
+{Protected Extensible Authentication Protocol}
+{
+	Eine proprietäre EAP Erweiterung von Microsoft und Cisco. Der Verbindungsaufbau erfolgt hier über TLS, bevor EAP für die Authentifizierung benutzt wird.
+}
+
+\newdualentry{eaptls}
+{EAP-TLS}
+{Extensible Authentication Protocol}
+{
+	Ist ein einheitliches Verfahren für die Authentifizierung (Einwahl in ein fremdes Netzwerk.). Bietet unterschiedliche Authentifizierungsverfahren wie z.B Username/Pw (RADIUS), Zertifikate und SIM Karte zur Verfügung. Findet unter anderem Anwendung bei VPN, WLAN und RADIUS. Ist eine Erweiterung von PPP
+}
+
+
+\newdualentry{sa}
+{SA}
+{Security Association }
+{
+	Ist eine Vereinbarung zwischen Endstationen. Sie beschreibt, wie die beiden Parteien Sicherheitsdienste anwenden, um sicher miteinander kommunizieren zu können. Eine SA ist geht immer nur in eine Richtung (simplex). Es wird also immer nur genau ein Dienst übertragen.
+}
+
+\newdualentry{icv}
+{ICV}
+{Integrity Check Value}
+{
+	32 Bit lange Prüfsumme für die Datenintegrität in WEP.
+}
+
+\newdualentry{ocsp}
+{OCSP}
+{Online Certificate Status Protocol}
+{
+	Ist ein Protokoll zur Echtzeit Überprüfung von Zertifikat Stati. Mit OCSP wird ermittelt, ob ein Zertifikat noch gültig oder gesperrt ist. Im Gegensatz zu CRL muss nicht die ganze Liste heruntergeladen werden. Man kann gerichtete Anfragen an die CA stellen.
+}
+
+\newdualentry{crl}
+{CRT}
+{Certificate Revocation List}
+{
+	Liste aller gesperrten Zertifikate einer CA (Enthält Seriennummer des Zertifikats sowie Sperrdatum)
+}
+
+\newdualentry{prf}
+{PRF}
+{Pseudo Random Function}
+{
+	Algorithmisch definierter Zufall
+}
+
+\newdualentry{eapol}
+{EAPOL}
+{EAP over LAN}
+{
+	Key exchange für WLAN und Ethernet-Netzwerke. Ethertype 0x888E
+}
+
+\newdualentry{rng}
+{RNG}
+{Random Number Generator}
+{
+	Ein Verfahren, das eine Folge von Zufallszahlen erzeugt
+}
+
+\newdualentry{spi}
+{SPI}
+{Security Parameter Index}
+{
+	32Bit langer Identifier für jede eine SA in IPSec
+}
+
+\newdualentry{psk}
+{PSK}
+{Pre Shared Key}
+{
+	Die symmetrischen Schlüssel müssen beiden Kommunikationspartner im Vorhinein bekannt sein
+}
+
+\newdualentry{eap-ttls}
+{EAP-TTLS}
+{EAP-Tunneled Transport Layer Security}
+{
+	EAP-TTLS ist so konzipiert, dass es so stark wie EAP-TLS ist, aber es nicht erforderlich ist, dass jedem Benutzer ein Zertifikat ausgestellt wird. Stattdessen werden nur den Authentifizierungsserver Zertifikate ausgestellt. Die Benutzerauthentifizierung wird durch ein Kennwort ausgeführt und die Kennwortanmeldeinformationen werden in einem sicher verschlüsselten Tunnel, der auf den Serverzertifikaten basiert, transportiert.
+}
+
+\newdualentry{aes-ni}
+{AES-NI}
+{Advanced Encryption Standard New Instructions}
+{
+	Ist eine Erweiterung des x86-Befehlssatzes von Intel- und AMD-Prozessoren, um die AES-Verschlüsselungen und -Entschlüsselungen zu beschleunigen
+}
+
+\newdualentry{pcr}
+{PCR}
+{Platform Configuration Registers}
+{
+	PCR sind ein Teil des flüchtigen Speichers im TPM und für die Speicherung von Zustandsabbildern der aktuellen Konfiguration von Soft- und Hardware zuständig.
+}
+
+
+
