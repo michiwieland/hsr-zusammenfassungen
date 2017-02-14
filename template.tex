@@ -32,6 +32,9 @@ this stuff is worth it, you can buy me a beer in return. Michael Wieland
 % Multiple Authors
 \usepackage{authblk}
 
+% Include external pdf
+\usepackage{pdfpages}
+
 % Layout / Seitenränder
 \usepackage{geometry}
 
@@ -46,11 +49,14 @@ this stuff is worth it, you can buy me a beer in return. Michael Wieland
 
 % Glossar und Abkürzungsverzeichnis
 \usepackage[acronym,toc,nopostdot]{glossaries}
-\glossarystyle{altlisthypergroup}
+\glossarystyle{altlist}
 \usepackage{xparse}
 \DeclareDocumentCommand{\newdualentry}{ O{} O{} m m m m } {
-	\newglossaryentry{gls-#3}{name={#5},text={#5\glsadd{#3}},
-		description={#6},#1
+	\newglossaryentry{gls-#3}{
+		name={#4 : #5},
+		text={#5\glsadd{#3}},
+		description={#6},
+		#1
 	}
 	\makeglossaries
 	\newacronym[see={[Siehe:]{gls-#3}},#2]{#3}{#4}{#5\glsadd{gls-#3}}
@@ -89,18 +95,64 @@ this stuff is worth it, you can buy me a beer in return. Michael Wieland
 \cfoot{\pagemark}
 
 % Pseudocode
-\usepackage{algorithm}
 \usepackage{algorithmic}
+\usepackage[linesnumbered,ruled]{algorithm2e}
 
 % Code Listings
 \usepackage{listings}
 \usepackage{color}
 \usepackage{beramono}
 
+\definecolor{bluekeywords}{rgb}{0,0,1}
+\definecolor{greencomments}{rgb}{0,0.5,0}
+\definecolor{redstrings}{rgb}{0.64,0.08,0.08}
+\definecolor{xmlcomments}{rgb}{0.5,0.5,0.5}
+\definecolor{types}{rgb}{0.17,0.57,0.68}
+
+\lstdefinestyle{visual-studio-style}{
+	language=[Sharp]C,
+	columns=flexible,
+	showstringspaces=false,
+	basicstyle=\footnotesize\ttfamily, 
+	commentstyle=\color{greencomments},
+	morekeywords={partial, var, value, get, set},
+	keywordstyle=\bfseries\color{bluekeywords},
+	stringstyle=\color{redstrings},
+	breaklines=true,
+	breakatwhitespace=true,
+	tabsize=4,
+	numbers=left,
+	numberstyle=\tiny\color{black},
+	frame=lines,
+	showspaces=false,
+	showtabs=false,
+	escapeinside={£}{£},
+}
+
 \definecolor{DarkPurple}{rgb}{0.4, 0.1, 0.4}
 \definecolor{DarkCyan}{rgb}{0.0, 0.5, 0.4}
 \definecolor{LightLime}{rgb}{0.3, 0.5, 0.4}
 \definecolor{Blue}{rgb}{0.0, 0.0, 1.0}
+
+\lstdefinestyle{cevelop-style}{
+	language=C++,  
+	columns=flexible,
+	showstringspaces=false,     
+	basicstyle=\footnotesize\ttfamily, 
+	keywordstyle=\bfseries\color{DarkPurple},
+	commentstyle=\color{LightLime},
+	stringstyle=\color{Blue}, 
+	escapeinside={£}{£}, % latex scope within code      
+	breaklines=true,
+	breakatwhitespace=true,
+	showspaces=false,
+	showtabs=false,
+	tabsize=4,
+	morekeywords={include,ifndef,define},
+	numbers=left,
+	numberstyle=\tiny\color{black},
+	frame=lines,
+}
 
 \lstdefinestyle{eclipse-style}{
 	language=Java,  
@@ -111,12 +163,18 @@ this stuff is worth it, you can buy me a beer in return. Michael Wieland
 	commentstyle=\color{LightLime},
 	stringstyle=\color{Blue}, 
 	escapeinside={£}{£}, % latex scope within code      
+	breaklines=true,
+	breakatwhitespace=true,
+	showspaces=false,
+	showtabs=false,
+	tabsize=4,
 	morekeywords={length},
 	numbers=left,
 	numberstyle=\tiny\color{black},
-	frame=single,
+	frame=lines,
 }
 \lstset{style=eclipse-style}
+
 
 
 % Theorems \begin{mytheo}{title}{label}
@@ -126,3 +184,5 @@ this stuff is worth it, you can buy me a beer in return. Michael Wieland
 {fonttitle=\bfseries}{def}
 \newtcbtheorem[number within=section]{remember}{Merke}%
 {fonttitle=\bfseries}{rem}
+\newtcbtheorem[number within=section]{hint}{Hinweis}%
+{fonttitle=\bfseries}{hnt}
