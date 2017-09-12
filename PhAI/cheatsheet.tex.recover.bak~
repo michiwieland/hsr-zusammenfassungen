@@ -1,0 +1,893 @@
+% !TeX spellcheck = de_CH
+\documentclass[
+a4paper,
+oneside,
+landscape, 
+8pt,
+]{scrartcl}
+
+% language
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+% tables
+\usepackage{tabu}
+\usepackage{booktabs}
+\tabulinesep=1.2mm
+
+% images
+\usepackage{graphicx}
+
+% layout
+\usepackage[landscape]{geometry}
+\geometry{tmargin=5mm,bmargin=5mm,lmargin=5mm,rmargin=5mm}
+\usepackage{multicol}
+\setlength{\columnsep}{1cm}
+
+% math
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{enumitem}
+ 
+% title
+\title{Cheatsheet}
+\subject{Physik Anwendungen für Informatiker}
+\author{Michael Wieland}
+\date{\today}
+
+
+\begin{document}
+
+\maketitle
+
+\clearpage
+
+\begin{multicols}{2}
+	
+\section{Grundlagen}
+\subsection{Konstanten}
+\begin{tabbing}
+	\begin{tabu} to \linewidth {l X l }
+		\toprule
+		Konstante & Bedeutung & Wert \\
+		\midrule
+		$g$ & Gravitation / Schwerkraft  & $9.81\frac{m}{s^2}$ \\
+		$c$ & Lichtgeschwindigkeit & $3 \cdot 10^8 \frac{m}{s}$  \\
+		$N_A$ & Avogadro Konstante = 1mol & $6.02214 \cdot 10^{23} \frac{1}{mol}$  \\
+		$k_b$ & Boltzmann-Konstante & $1.3806 \cdot 10^{-23}\frac{J}{K}$  \\
+		$R$ & Universelle Gaskonstante & $N_A \cdot k_B = 8.314$ \\
+	\end{tabu}
+\end{tabbing}
+
+\subsection{Umrechnungen}
+Physikalische Dimension: Masse, Länge, Zeit, Temperatur, Stromstärke, Lichtstärke, Stoffmenge.
+\begin{tabbing}
+	\begin{tabu} to \linewidth {l X}
+		\toprule
+		Volumen & $1cm^3 = (10^{-2}m)^3 = 10^{-6}m^3$ \\ 
+		Fläche &  $1cm^2 = (10^{-2}m)^2 = 10^{-4}m^2$ \\
+		Geschwindigkeit & $1\frac{m}{s} = 3.6\frac{km}{h} = 1\frac{km}{h} = 0.277 \frac{m}{s}$ \\
+		Grad in Fahrenheit & $T_F = \frac{9}{5} \cdot T_C + 32 \Rightarrow 0^\circ\text{C} = 32F$ $100^\circ\text{C} = 212F$ \\ 
+		Grad in Kelvin & $T_K = T_C + 273.15$ \\
+		Bar in Pascal & $1 bar = 100'000 \frac{N}{m^2} = 100'000 Pa (10^5)$ \\
+		kWh in kJ & $1kWh = 1000W \cdot 3600 s= 3.6 \cdot 10^^6 Ws = 3.6 MJ = 3600kJ$ \\
+		\bottomrule
+	\end{tabu}
+\end{tabbing}
+
+
+\subsection{Planimetrie und Stereometrie}
+\paragraph{Trapez}
+\begin{tabbing}
+	\begin{tabu} to \linewidth {l X l X}
+		\toprule
+		Fläche & $A = \frac{a + c}{2} \cdot h$ & 
+		Umfang & $U = 2 \cdot h  + a + c$ \\
+		\bottomrule
+	\end{tabu}
+\end{tabbing}
+
+
+\paragraph{Dreieck}
+\begin{tabbing}
+	\begin{tabu} to \linewidth {l X l X}
+		\toprule
+		Fläche & $A = \frac{g \cdot h}{2}$ & & \\
+		\bottomrule
+	\end{tabu}
+\end{tabbing}
+
+\paragraph{Kreis}
+\begin{tabbing}
+	\begin{tabu} to \linewidth {l X l X}
+		\toprule
+		Fläche & $A = r^2 \cdot \pi$ & 
+		Umfang & $U = 2 \cdot r \cdot \pi$ \\
+		\bottomrule
+	\end{tabu}
+\end{tabbing}
+
+
+\paragraph{Zylinder}
+\begin{tabbing}
+	\begin{tabu} to \linewidth {l X l X}
+		\toprule
+		Fläche & $A = \frac{d^2 \cdot \pi}{4}$ &
+		Volumen & $V = r^2 \cdot \pi \cdot h $ \\
+		Mantelfläche & $M = d \cdot \pi \cdot h$ &
+		Oberfläche & $O = M + 2 \cdot A $ \\
+		\bottomrule
+	\end{tabu}
+\end{tabbing}
+
+\paragraph{Kegel}
+\begin{tabbing}
+	\begin{tabu} to \linewidth {l X l X}
+		\toprule
+		Fläche & $A = \frac{3 \cdot V}{h}$ &
+		Volumen & $V = \frac{A \cdot h}{3}$ \\
+		Höhe & $h = \frac{3 \cdot V}{A}$ & & \\
+		\bottomrule
+	\end{tabu}
+\end{tabbing}
+
+\columnbreak
+
+
+\section{Mechanik}
+\subsection{Kinematik}
+
+Die meisten Kinematikaufgaben können am einfachsten mit einem v-t Diagramm gelöst werden. Die Fläche unter der Kurve stellt die Geschwindigkeit dar. Die Steigung der Kurve ist die Beschleunigung.
+
+\includegraphics[width=0.9\linewidth]{images/kinematik}
+
+\paragraph{Geschwindigkeit und Beschleunigung}
+\begin{itemize}
+	\item Beim freien Fall wird eine gleichmässig beschleunigte Bewegung durch die Erdanziehung hervorgerufen. ($a = g$ und $s = h$)
+\end{itemize}
+\begin{tabbing}
+	\begin{tabu} to \linewidth {l X l X}
+		\toprule
+		Geschwindigkeit & & Beschleunigung & \\
+		\midrule
+		Durschnittsgeschwindigkeit & $v = \frac{s}{t}$ &
+		Beschleunigung ($v_0 = 0$) & $a = \frac{v^2}{2s}$\\
+		Momentangeschwindigkeit & $v = at + v_0$ &
+		konstante Beschleunigung & $s = s_0 + v_0t + \frac{1}{2} at^2$ \\
+		konstante Geschwindigkeit & $s(t) = s_0 + v \cdot t$  &
+		konstante Beschleunigung & $v(t) = v_0 + a \cdot t$ \\
+		mittlere Geschwindigkeit & $\vec{v} = \frac{\Delta s}{\Delta t} = \frac{s_2 - s_1}{t_2 - t_1}$ &
+		mittlere Beschleunigung & $a = \frac{\Delta v}{\Delta t}$ \\
+ 	\end{tabu}
+\end{tabbing}
+
+\paragraph{Freier Fall}
+\begin{tabbing}
+	\begin{tabu} to \linewidth {l X l X}
+		\toprule
+		Freier Fall & $t = \sqrt{\frac{2s}{g}}$  &
+		& \\
+	\end{tabu}
+\end{tabbing}
+
+\clearpage
+
+\paragraph{Schiefer Wurf} \hfill \\
+
+\includegraphics[width=0.8\linewidth]{images/schiefer_wurf}
+
+Schiefer Wurf: $y(x)=x \cdot tan(\varphi) - \frac{g x^2}{2 v_0^2 \cos^2(\varphi)}$
+
+\begin{tabbing}
+	\begin{tabu} to \linewidth {l X l X}
+		\toprule
+		Wagrechte Wegkoordinate & $x = v_0 t \cos \varphi$ &
+		Senkrechte Wegkoordinate & $y = v_0 t sind \varphi - \frac{gt^2}{2}$ \\
+		Maximale Wurfhöhe & $y_max = \frac{v_0^2 \cdot \sin^2(\varphi)}{2g}$ &
+		Wurfweite & $d = \frac{v_0^2 \cdot \sin(2\varphi)}{g}$ \\
+	\end{tabu}
+\end{tabbing}
+
+\begin{tabbing}
+	\begin{tabu} to \linewidth {l X l}
+		Variable & Bedeutung & SI-Einheit \\
+		\midrule
+		$\varphi$ & Abwurfwinkel  &  \\ 
+		$g$ & Fallbeschleunigung  &  \\ 
+		$v_0$ & Betrag der Anfangsgeschwindigkeit  &  \\ 
+		$t$ & Zeit  &  \\ 
+		\bottomrule
+	\end{tabu}
+\end{tabbing}
+
+\paragraph{Senkrechter Wurf und Horizontaler Wurf} \hfill \\
+
+\begin{itemize}
+	\item Beim senkrechten Wurf gelten die Formeln des Schiefen Wurfs mit dem Winkel $\varphi = 90^\circ$
+	\item Beim horizontale Wurf gelten die Formeln des Schiefen Wurfs mit dem Winkel $\varphi = 0^\circ$
+\end{itemize}
+
+\begin{minipage}[h!]{0.5\linewidth}
+\includegraphics[width=0.7\linewidth]{images/senkrechter_wurf}
+\end{minipage}
+\hfill
+\begin{minipage}[hbt]{0.5\linewidth}
+\includegraphics[width=0.7\linewidth]{images/horizontaler_wurf}
+\end{minipage}
+
+\columnbreak
+
+
+\paragraph{Gleichförmige Kreisbewegung}
+\begin{tabbing}
+	\begin{tabu} to \linewidth {l X l X}
+		\toprule
+		Winkelgeschwingikeit & $\omega = \frac{d \varphi}{d t}$ & 
+		Periode & $T= \frac{2\pi r}{v} = \frac{2\pi}{\omega}$ \\
+		Frequenz, Drehzahl & $f = \frac{1}{T} = \frac{\omega}{2 \pi}$ &
+		Bahngeschwindigkeit & $v = \omega r$ \\
+		Drehzahl & $D = \frac{n}{t}$ &
+		Umfangsgeschwindigkeit & $v_U = \frac{d n \pi}{t}$ \\
+		Winkelbeschleunigung & $\omega = 2 \pi f$&
+		Radialbeschleunigung & $a_r = \frac{v^2}{r} = r \omega^2$ \\
+	\end{tabu}
+\end{tabbing}
+
+\begin{tabbing}
+	\begin{tabu} to \linewidth {l X l}
+		Variable & Bedeutung & SI-Einheit \\
+		\midrule
+		$\varphi$ & Rotationswinkels  & rad (Bogenmass) \\ 
+		$\omega$ & Winkelgeschwindigkeit & $\frac{rad}{s}$ \\
+		$D$ & Drehzahl & $\frac{1}{min}$ \\
+		$n$ & Anzahl Umdrehungen pro Minute & \\
+		$T$ & Periode & \\
+		\bottomrule
+	\end{tabu}
+\end{tabbing}
+
+\clearpage
+
+
+\subsection{Dynamik}
+
+\subsubsection{Kräfte}
+
+\begin{itemize}
+	\item Kraft = Gegenkraft
+	\item Die Haft und Gleitreibung ist unabhängig von der Fläche
+	\item Wird ein Körper mit einer Masse von 1kg mit $1\frac{m}{s^2}$ beschleunigt, dann wirkt auf ihn eine Kraft von 1N
+\end{itemize}
+
+\begin{minipage}[h!]{0.3\linewidth}
+\includegraphics[width=0.9\linewidth]{images/schiefe_ebene}
+\end{minipage}
+\hfill
+\begin{minipage}[h!]{0.3\linewidth}
+	\includegraphics[width=0.4\linewidth]{images/kraefte_gleichgewicht}
+\end{minipage}
+\hfill
+\begin{minipage}[h!]{0.3\linewidth}
+\begin{align*}
+Ma & = Mg - F_s \\
+ma & = F_s - mg \\
+   &\Rightarrow (m+M)a=g(M-m)
+\end{align*}
+\end{minipage}
+
+
+\includegraphics[width=0.9\linewidth]{images/haft_gleitkraft}
+
+
+
+
+\begin{tabbing}
+	\begin{tabu} to \linewidth {l X l X}
+		\toprule
+		Kraft & $F = m \cdot g$ &  & $tan(\alpha) = \frac{h}{b}$ \\
+		Gewichtskraft & $F_G = mg$  &
+		Federkraft & $F_F = k\cdot y$ \\
+		Haftreibungskraft (max) & $F_R \leq \mu_H \cdot F_N$ &
+		Gleitreibungskraft & $F_R = \mu_G \cdot F_N$ \\
+		Normalkraft & $F_N = mg\cdot \cos(\alpha)$ &
+		Hangabtriebskraft & $F_H = F_G \cdot \sin(\alpha)$  \\
+		Normalkraft & $F_N = \frac{F_G \cdot b}{l}$ &
+		Hangabtriebskraft & $F_H = \frac{F_G \cdot h}{l}$  \\
+	\end{tabu}
+\end{tabbing}
+
+\begin{tabbing}
+	\begin{tabu} to \linewidth {l X l}
+		Variable & Bedeutung & SI-Einheit \\
+		\midrule
+		$F$ & Kraft $= \vec{F} = m\vec{a}$ & $N = \frac{kg \cdot m}{s^2}$\\ 
+		$k$ & Federkonstante & $\frac{N}{m}$ \\
+		$y$ & Längenänderung & $m$ \\
+		$\mu_G$ & Gleitreibungszahl &  \\
+		$\mu_H$ & Haftreibungszahl &  \\
+		$l$ & Länge & $m$  \\
+		\bottomrule
+	\end{tabu}
+\end{tabbing}
+
+\paragraph{Netwonsche Axiome}
+
+\begin{tabbing}
+	\begin{tabu} to \linewidth {l l X}
+		\toprule
+		I Axiom & Trägheitsprinzip & $\vec{v} = const$, wenn $ \vec{F}_{res} = \vec{0}$ \\
+		II Axiom & Aktionsprinzip & $\vec{F}_{res} = m\vec{a}$\\ 
+		III Axiom & Wechselwirkungsprinzip & $\vec{F}_{12} = - \vec{F}_{21}$ \\
+		\bottomrule
+	\end{tabu}
+\end{tabbing}
+
+
+\subsubsection{Impuls}
+Wenn nur Kräfte zwischen zwei Körpern wirken (Kraft = Gegenkraft) bleibt der Impuls erhalten. Die Bewegung des Schwerpunktes ändert sich nicht durch die Kollision.
+
+\begin{tabbing}
+	\begin{tabu} to \linewidth {l X l X}
+		\toprule
+		Impuls & $\vec{p} = m \vec{v}$  &
+		Kraftstoss & $\vec{F} \Delta t = \Delta \vec{p}$ \\
+	\end{tabu}
+\end{tabbing}
+
+\begin{tabbing}
+	\begin{tabu} to \linewidth {l X l}
+		Variable & Bedeutung & SI-Einheit \\
+		\midrule
+		$\vec{p}$ & Impuls & $Ns = \frac{kg \cdot m}{s}$ \\
+
+		\bottomrule
+	\end{tabu}
+\end{tabbing}
+
+\subsubsection{Arbeit}
+
+\begin{tabbing}
+	\begin{tabu} to \linewidth {l X l X}
+		\toprule
+		Arbeit & $W = F_s \cdot s$  &
+		Kraft in Wegrichtung & $F_s = F \cos(\alpha)$ \\
+	\end{tabu}
+\end{tabbing}
+
+\begin{tabbing}
+	\begin{tabu} to \linewidth {l X l}
+		Variable & Bedeutung & SI-Einheit \\
+		\midrule
+		$W$ & Arbeit & $Nm = J$ \\
+		$s$ & Wegstrecke & $m$ \\
+		\bottomrule
+	\end{tabu}
+\end{tabbing}
+
+\subsubsection{Mechanische Energie}
+\begin{itemize}
+	\item Die Energie ist eine Zustandsgrösse eines Systems, die zunimmt, wenn von aussen Arbeit am System verrichtet wird, und die abnimmt, wenn das System nach aussen Arbeit verrichtet.
+	\item Energieerhaltungssatz: Die Gesamtenergie $E_{tot}$ in einem abgeschlossenen System hat einen konstanten Wert, der von Vorgängern im Symsten nicht beeinfluss wird.
+	\item Die Ausdehnung einer Feder ist proportional zur Kraft
+\end{itemize}
+\begin{tabbing}
+	\begin{tabu} to \linewidth {l X l X}
+		\toprule
+		kinetische Energie & $E_{kin} = \frac{1}{2}mv^2$ &
+		potentielle Energie & $E_{pot} = mgh$ \\
+		Federenergie & $E_f = \frac{F \cdot s}{2} = \frac{k \cdot s^2}{2}$ &
+		 & \\
+	\end{tabu}
+\end{tabbing}
+
+\begin{tabbing}
+	\begin{tabu} to \linewidth {l X l}
+		Variable & Bedeutung & SI-Einheit \\
+		\midrule
+		$E$ & Energie & $J = Nm = Ws = \frac{kgm^2}{s^2}$ \\
+		$k$ & Federkonstante & $\frac{N}{m}$  \\
+		\bottomrule
+	\end{tabu}
+\end{tabbing}
+
+\begin{minipage}[h!]{0.3\linewidth}
+\includegraphics[width=0.8\linewidth]{images/feder}
+\end{minipage}
+\hfill
+\begin{minipage}[h!]{0.2\linewidth}
+\includegraphics[width=0.8\linewidth]{images/energie}
+\end{minipage}
+\hfill
+\begin{minipage}[h!]{0.3\linewidth}
+	\begin{align*}
+	m g (L + d) = \frac{k}{2} d^2 + \frac{m}{2} v^2 \\
+	\text{Im Kehrpunkt ist die Geschwindigkeit = 0} \\
+	d^2 - \frac{2mg}{k} d \frac{2mg}{k} L=0 \\
+	d= \frac{mg}{k} + \sqrt{\frac{2mg}{k} + (\frac{mg}{k})^2} \\
+	\end{align*}
+\end{minipage}
+
+
+\subsubsection{Stösse}
+Geschwindigkeit des Schwerpunktes vor dem Stoss
+\begin{align*}
+u &= \frac{m_1 v_1 + m_2 v_2 }{m_1 + m_2} \\
+v_1 &= u+(v_1-u)=u+v_1^{rel} \\
+v_2 &= u+(v_2-u)=u+v_2^{rel}
+\end{align*}
+
+\paragraph{Elastischer Stoss} \hfill \\
+nach dem Stoss bleibt die kinetische Energie unverändert.
+\begin{align*}
+v_1 &= u - (v_1 - u) = u - v_1^{rel} \\
+v_2 &= u - (v_2 - u) = u - v_2^{rel} \\
+E &= \frac{m_1+m_2}{2} u^2 + \frac{m_1}{2} (v_1-u)^2 + \frac{m_2}{2} (v_2-u)^2
+\end{align*}
+
+\paragraph{Inelastischer Stoss} \hfill \\
+nach dem Stoss ist die kinetische Energie kleiner.
+\begin{align*}
+v_1 = u \land v_2 = u \land E = \frac{m_1+m_2}{2} u^2
+\end{align*}
+
+\subsubsection{Leistung}
+Leitstung ist Arbeit pro Zeit
+\begin{tabbing}
+	\begin{tabu} to \linewidth {l X l X}
+		\toprule
+		mittlere Leistung & $P = \frac{d W}{d t}$ &
+		Wirkungsgrad & $\eta = \frac{\Delta E_{ab}}{\Delta E_{zu}} < 1$ \\
+		mittlere Leistung & $P = \frac{mgh}{d t}$ &
+		bei Translation & $P = F \cdot v$ \\
+	\end{tabu}
+\end{tabbing}
+
+\begin{tabbing}
+	\begin{tabu} to \linewidth {l X l}
+		Variable & Bedeutung & SI-Einheit \\
+		\midrule
+		$P$ & Leistung & $W = \frac{J}{s} = \frac{kg \cdot m^2}{s^3}$ \\
+		$E_{ab}$ & abgegebene Nutzenergie &  \\
+		$E_{zu}$ & aufgenommene Energie &  \\
+		\bottomrule
+	\end{tabu}
+\end{tabbing}
+
+
+\columnbreak
+
+
+\subsection{Statik}
+
+\subsubsection{Gleichgewicht}
+\begin{itemize}
+	\item Ein Massenpunkt ist im Gleichgewicht wenn die Summe der Kräfte gleich null ist. 
+\end{itemize}
+
+\begin{tabbing}
+	\begin{tabu} to \linewidth {l X l X}
+		\toprule
+		Kräftegleichgewicht & $\vec{F}_{res} = \vec{F}_1 +\vec{F}_2 + .. + \vec{F}_n$ &
+		$\Rightarrow  \sum_{i=1}^{n}\vec{F}_i = \vec{0}$ & \\
+		\bottomrule
+	\end{tabu}
+\end{tabbing}
+
+Die Summe muss mit Vektoraddition ausgerechnet werden. Nach Festlegung eines Koordinatensystems kann mit Komponenten der Vektoren gerechnet werden. In zwei Dimensionen erhalten wir somit zwei Gleichungen und können maximal zwei Unbekannte bestimmen.
+
+
+\begin{minipage}[h!]{0.5\linewidth}
+\includegraphics[width=0.7\linewidth]{images/gleichgewicht}
+\end{minipage}
+\hfill
+\begin{minipage}[h!]{0.5\linewidth}
+	
+	\begin{align*}
+	X &: F_1  \cos(\alpha) - F_2  cos(\beta) - F_3 \sin(\gamma) = 0 \\
+	Y &: -F_1  \sin(\alpha) - F_2 \sin(\beta) + F_3 \cos(\gamma) = 0
+	\end{align*}
+
+\end{minipage}
+
+
+\subsubsection{Drehmoment}
+
+\begin{itemize}
+	\item Die wirksame Hebellänge wird begrenzt zwischen dem Drehpunkt und dem Ansatzpunkt der Kraft
+	\item Mehrere Drehmomente im Gegenuhrzeigersinn (positives Vorzeichen) und im Uhrzeigersinn (Vorzeichen) sind im Gleichgewicht, wenn das Gesamtdrehmoment $M_{tot}$ null ist.
+	\item Kraft $\cdot$ Kraftarm = Last $\cdot$ Lastarm
+\end{itemize}
+
+\includegraphics[width=0.4\linewidth]{images/drehmoment}
+
+\begin{tabbing}
+	\begin{tabu} to \linewidth {l X l X}
+		\toprule
+		Drehmoment & $M = Fr$ & & $|M| = |F||r| \sin(\varphi)  $ \\
+		Hebelgesetz & $F_1r_1 = F_2r_2$ \\
+	\end{tabu}
+\end{tabbing}
+
+\begin{tabbing}
+	\begin{tabu} to \linewidth {l X l}
+		Variable & Bedeutung & SI-Einheit \\
+		\midrule
+		$M$ & Drehmoment & $Nm$ \\ 
+		$r$ & Hebelarm & $m$ \\ 
+		$F$ & Kraft & $m$ \\ 
+		\bottomrule
+	\end{tabu}
+\end{tabbing}
+
+
+\includegraphics[width=0.7\linewidth]{images/hebel}
+
+\begin{align*}
+X&:	F \cos(\alpha) - F_x = 0 \\
+Y&:	F \sin(\alpha) + F_y - m g = 0 \\
+M_z &:	F \sin(\alpha) \cdot L - m g \cdot \frac{L}{2} = 0 \\
+\Rightarrow F &= \frac{mg}{2 \sin(\alpha)}
+\end{align*}
+
+\subsubsection{Drehimpuls}
+\begin{tabbing}
+	\begin{tabu} to \linewidth {l X l X}
+		\toprule
+		Drehmoment & $M = Fr$ & & $|M| = |F||r| \sin(\varphi)  $ \\
+		Hebelgesetz & $F_1r_1 = F_2r_2$ \\
+		Drehimpuls & $L = J \omega$ & & $L = \frac{dL}{dt}$
+		\end{tabu}
+		\end{tabbing}
+		
+		\begin{tabbing}
+			\begin{tabu} to \linewidth {l X l}
+				Variable & Bedeutung & SI-Einheit \\
+				\midrule
+				$M$ & Drehmoment & $Nm$ \\ 
+				$r$ & Hebelarm & $m$ \\ 
+				$F$ & Kraft & $m$ \\ 
+				\bottomrule
+				\end{tabu}
+				\end{tabbing}
+
+\subsubsection{Schwerpunkt}
+\begin{itemize}
+	\item Wenn ein Körper im Schwerpunkt aufgehängt wird, ist er im Gleichgewicht. Somit ist das Drehmoment um den Schwerpunkt = 0
+	\item Die Schwerkraft, welche auf einen starren Körper wirkt, kann durch eine Kraft im Schwerpunkt ersetzt werden. $r_p \sum_{i} m_i = \sum_{i} m_i  r_i$
+\end{itemize}
+
+
+
+
+\subsubsection{Hydrostatik}
+\begin{tabbing}
+	\begin{tabu} to \linewidth {l X l X}
+		\toprule
+		Dichte & $\rho = \frac{m}{V}$ &
+		Druck (Druckkraft) & $p = \frac{F}{A}$ \\
+		Tiefendruck / Schweredruck & $p = h \rho g$ &
+		Auftriebskraft & $F_A = \rho \cdot g \cdot V_E$ \\
+	\end{tabu}
+\end{tabbing}
+
+\begin{tabbing}
+	\begin{tabu} to \linewidth {l X l}
+		Variable & Bedeutung & SI-Einheit \\
+		\midrule
+		$p$ & Druck & $1 Pa = 1\frac{N}{m^2} = 1 \frac{kg}{m\cdot s^2}$ \\ 
+		$F$ & Kraft & $N$ \\
+		$A$ & Fläche & $m^2$ \\
+		$V_E$ & eingetauchtes Volumen, der verdrängten Flüssigkeit \\
+		$\rho$ & Dichte der Flüssigkeit \\
+		\bottomrule
+	\end{tabu}
+\end{tabbing}
+
+
+\subsubsection{Bernoulli-Gleichung}
+\begin{itemize}
+	\item Die Bernoulli Gleichung wird als grundlegende Formel der Strömungslehre bezeichnet. Sie zeigt die Zusammenhänge zwischen Strömung und Energieerhaltung.
+	\item Bei der stationären Strömung viskosität­sfreier inkompressibler Fluide (Flüssigkeiten und Gase) besagt sie, dass die spezifische Energie der Fluidelemente entlang einer Stromlinie konstant ist.
+\end{itemize}
+
+\begin{tabbing}
+	\begin{tabu} to \linewidth {l X l X}
+		\toprule
+		Bernoulli-Gleichung & $e = \frac{u^2}{2} + \frac{p}{\rho} + gz = const$ & 
+		Bernoulli-Gleichung & $p_{ges} = p_{st} + p{dyn} + p{h}$ \\
+	\end{tabu}
+\end{tabbing}
+
+\begin{tabbing}
+	\begin{tabu} to \linewidth {l X l}
+		Variable & Bedeutung & SI-Einheit \\
+		\midrule
+		$p_{st}$ & Statischer Druck & $\frac{N}{m^2} / bar$ \\
+		$p_{dyn}$ & Dynamischer Druck & $\frac{N}{m^2} / bar$ \\ 
+		$p_{h}$ & geodätischer Druck & $\frac{N}{m^2} / bar$ \\  
+		\bottomrule
+	\end{tabu}
+\end{tabbing}
+
+\subsubsection{Rohrreibungszahl}
+Ist eine dimensionslose Kennzahl zur Berechnung des Druckabfalls bei einer Strömung in einem geraden Rohr.
+
+\begin{tabbing}
+	\begin{tabu} to \linewidth {l X l X}
+		\toprule
+		Rohrreibungszahl & $\lambda = \frac{D}{\rho \cdot v^2} \frac{2dp}{dx} $  &
+		Reynoldszahl & $Re = \frac{\rho \cdot v \cdot d}{\eta}$ \\
+		Laminare Ströung & $\lambda_l = \frac{64}{Re}$ &
+		Turbulente Strömung & $\lambda_t = \frac{0.3164}{Re^{1/4}}$ \\
+	\end{tabu}
+\end{tabbing}
+
+\begin{tabbing}
+	\begin{tabu} to \linewidth {l X l}
+		Variable & Bedeutung & SI-Einheit \\
+		\midrule
+		$D$ & Rohrdurchmesser & $m$ \\
+		$v$ & mittlere Strömungsgeschwindigkeit & $\frac{m}{s}$  \\
+		$\rho$ & Dichte & $Pa = \frac{N}{m^2} = \frac{kg}{m\cdot s^2}$ \\
+		$d$ & charakteristische Länge  & $m$ \\
+		\bottomrule
+	\end{tabu}
+\end{tabbing}
+
+\subsubsection{Volumenstrom}
+\begin{itemize}
+	\item Das geflossenen Volumen $V$ pro Zeiteinheit $t$ - bei einer laminaren stationären Strömung eines homogenen Newton’schen Fluids durch ein Rohr.
+\end{itemize}
+
+\begin{tabbing}
+	\begin{tabu} to \linewidth {l X l X}
+		\toprule
+		Volumenstrom & $\dot V = Q =\frac{V}{t} = \frac{\pi \cdot   r^4}{8  \cdot  \eta}\frac{\Delta p}{l}$  &
+		Druckdifferenz & $\Delta p = \rho \cdot g \cdot h$ \\
+		
+	\end{tabu}
+\end{tabbing}
+
+\begin{tabbing}
+	\begin{tabu} to \linewidth {l X l}
+		Variable & Bedeutung & SI-Einheit \\
+		\midrule
+		$\dot V = Q$ & Volumenstrom durch das Rohr & $\frac{m^3}{s}$ \\
+		$r$ & Innernradius des Rohrs & $m$ \\
+		$l$ & Länge des Rohrs & $m$ \\
+		$\eta$ & dynamische Viskosität der strömenden Flüssigkeit & $Pa \cdot s$ \\
+		$\rho$ & Dichte & $Pa = \frac{N}{m^2} = \frac{kg}{m\cdot s^2}$ \\
+		$\Delta p$ & Druckdifferenz zwischen Anfang und Ende des Rohres & $Pa$ \\
+		\bottomrule
+	\end{tabu}
+\end{tabbing}
+
+\newpage
+
+
+\section{Thermodynamik}
+\begin{itemize}
+	\item Die spezifische Wärmekapazität eines Stoffes gibt an, wieviel Energie zugeführt werden muss, um die Temperatur von 1 kg des Stoffes um $1^\circ \text{C}$ zu erhöhen.
+	\item Die Temperatur ist ein Maß für die Bewegungsenergie der sich ungeordnet bewegenden Atome eines Systems.
+	\item Wärme ist die Energie, die zwischen einem System und seiner Umgebung aufgrund eines Temperaturunterschieds ausgetauscht wird.
+\end{itemize}
+
+
+\paragraph{0. Hauptsatz} Wenn zwei Körper die gleiche Temperatur haben, befinden sie sich in einem thermischen Gleichgewicht
+
+\paragraph{1. Hauptsatz}
+Die Innere Energie eines Systems kann durch Zufuhr von Arbeit oder durch Zufuhr von Wärme erhöht werden.
+
+\begin{enumerate}
+	\item In einem abgeschlossenen System bleibt die Gesamtenergie konstant.
+	\item Energie kann nicht erzeugt, sondern nur umgewandelt und übertragen werden. 
+	\item Es gibt kein Perpetuum mobile 1. Art.
+\end{enumerate}
+
+\begin{tabbing}
+	\begin{tabu} to \linewidth {l X l X}
+		\toprule
+		1. Hauptsatz & $\Delta U = Q + W$  &
+		Kompressionsarbeit & $W = -p \Delta V$  \\
+	\end{tabu}
+\end{tabbing}
+
+\begin{tabbing}
+	\begin{tabu} to \linewidth {l X l}
+		Variable & Bedeutung & SI-Einheit \\
+		\midrule
+		$\Delta U$ & Änderung der inneren Energie eines Systems &  \\
+		$Q$ & Energieaustausch mit der Umgebung in Form von Wärme & \\
+		$W$ & Energieaustausch mit der Umgebungin Form von Arbeit & \\
+		\bottomrule
+	\end{tabu}
+\end{tabbing}
+
+\paragraph{2. Hauptsatz}
+\begin{enumerate}
+	\item Wärme fliesst von selbst nur von einem heißen System zu einem kalten System.
+	\item Keine zyklisch arbeitende Einrichtung kann Wärme vollständig in mechanishce Nutzenergie umwandeln; d.h., es gibt kein Perpetuum mobile 2. Art
+	\item Abgeschlossene Systeme streben einen Zustand maximaler Unordnung bzw. grösster Wahrscheinlichkeit an. (Prinzip der max. Entropie)
+\end{enumerate}
+
+\paragraph{3. Hauptsatz}
+Der absolute Nullpunkt der Temperatur -273, $16^\circ C$ (das sind 0 Kelvin) ist unerreichbar.
+
+\subsubsection{Wärme}
+\begin{tabbing}
+	\begin{tabu} to \linewidth {l X l X}
+		\toprule
+		Wärmekapazität & $C = \frac{\Delta Q}{\Delta T}$  &
+		Wärmekapazität (homogenen Körper) & $C = c \cdot m$  \\
+		Wärmekapazität & $C = C_m \cdot n$ &
+		Wärmemenge & $Q = c \dot m \Delta T $ \\
+		Kondensatons, Schmelzwärme & $\dot Q_s = \dot m_D q_s$ &
+		Wirkungsgrad & $\eta = \frac{\dot Q_L}{\dot Q_A} < 1$ \\
+	\end{tabu}
+\end{tabbing}
+
+\begin{tabbing}
+	\begin{tabu} to \linewidth {l X l}
+		Variable & Bedeutung & SI-Einheit \\
+		\midrule
+		$Q$ & Wärmemenge & $kJ$ \\
+		$C_m$ & molare Wärmekapazität & \\
+		$n$ & Stoffmenge & \\
+		$\Delta Q$ & Verhältnis der zugeführten Wärme &  \\
+		$\Delta T$ & damit bewirkte Temperaturänderung &  \\
+		$C$ & Wärmekapazität &  $\frac{J}{K}$\\
+		$c$ & spezifische Wärmekapazität & \\
+		$m$ & Masse & \\
+		$\dot m_D$ & produzierte Dampf Masse & \\
+		$\dot q_s$ & Verdampfungswärme / Schmelzwärme & $\frac{kJ}{kg}$\\
+		$\dot Q_L$ & Wärmeleistung & $\frac{kJ}{s} = kW$\\
+		$\dot Q_A$ & Wärmebelastung & $\frac{kJ}{s} = kW$\\
+		\bottomrule
+	\end{tabu}
+\end{tabbing}
+
+\subsubsection{Wärmeübertragung}
+\begin{itemize}
+	\item Durch direkten Kontakt: Wärmeleitung (Beispiel: Hand – kaltes Metall)
+	\item Durch Strahlung: Wärmestrahlung (Beispiel: Sonne, Lebewesen)
+	\item Durch Transport von Materie: Konvektion (Beispiel: Thermik)
+\end{itemize}
+
+\begin{tabbing}
+	\begin{tabu} to \linewidth {l X l X}
+		\toprule
+		Wärmestrahlung & $\dot{Q} = \varepsilon \sigma A T ^4$  &
+		 &  \\
+	\end{tabu}
+\end{tabbing}
+
+\begin{tabbing}
+	\begin{tabu} to \linewidth {l X l}
+		Variable & Bedeutung & SI-Einheit \\
+		\midrule
+		$\varepsilon$ & Emissionsgrad (0 (perfekter Spiegel)-1 (Schwarzer Körper) &  \\
+		$\sigma$ &  Stefan-Boltzmann-Konstante &  \\
+		$A$ & Oberfläche des abstrahlenden Körpers &  \\
+		$T$ & absolute Temperatur des abstrahlenden Körpers &  \\
+		\bottomrule
+	\end{tabu}
+\end{tabbing}
+
+
+\subsection{Anzahl Teilchen}
+\begin{tabbing}
+	\begin{tabu} to \linewidth {l X l X}
+		\toprule
+		Teilchenzahl & $N = n \cdot N_A$  &
+		Stoffmenge & $n = \frac{m}{M}$  \\
+		molare Mass & $M = N_A \cdot m_T$ &
+		& \\
+	\end{tabu}
+\end{tabbing}
+\begin{tabbing}
+	\begin{tabu} to \linewidth {l X l}
+		Variable & Bedeutung & SI-Einheit \\
+		\midrule
+		$n$ & Stoffmenge & $mol$ \\
+		$N_A$ & Avogadro Konstante & $mol^{-1}$  \\
+		$N$ & Teilchenzahl & $mol^{-1}$ \\
+		$m$ & Gasmasse & $kg$ \\
+		$M$ & molare Masse & $\frac{kg}{mol}$\\
+		$m_T$ & Masse eines Teilchen & \\
+		\bottomrule
+	\end{tabu}
+\end{tabbing}
+
+
+
+\subsection{Atmosphärendruck}
+
+\begin{itemize}
+	\item Das Gesetz von Boyle-Mariotte besagt: Bei konstanter Temperatur verhalten sich die Volumen umgekehrt wie die zugehörigen absoluten Drücke (umgekehrt proportional)
+	\item Das Gesetz von Gay-Lussac besagt: Bei konstantem Volumen verhalten sich die absoluten Drücke gleich wie die zugehörigen absoluten Temperaturen (proportional) $\Rightarrow$ konstantes Volumen = Isochore
+\end{itemize}
+
+\subsection{Ideales Gas}
+\begin{tabbing}
+	\begin{tabu} to \linewidth {l X X X}
+		\toprule
+		Gasgleichung & $p V = N k_B T = nRT$  &
+		Boyle-Mariotte (konst Temperatur) & $\frac{V_1}{V_2} = \frac{p_{1}}{p_{2}} \Rightarrow pV = konst.$ \\
+		Spezifische Gasgleichung & $p = \rho R_s T$ &
+		Gay-Lussac (konst Volumen) & $\frac{p_1}{p_2} = \frac{T_1}{T_2} \Rightarrow \frac{p}{T} = konst. $ \\
+		Molzahl & $n = \frac{m}{M}$
+		& \\
+	\end{tabu}
+\end{tabbing}
+
+\begin{tabbing}
+	\begin{tabu} to \linewidth {l X l}
+		Variable & Bedeutung & SI-Einheit \\
+		\midrule
+		$p$ & absoluter Druck & $bar$ \\
+		$V$ & Volumen & $m^3$  \\
+		$N$ & Anzahl Moleküle &  \\
+		$n$ & Molzahl & \\
+		$R$ & Universelle Gaskonstante $N_A \cdot k_B = 8.314$ & $\frac{J}{mol \cdot K}$\\
+		$T$ & Temperatur & $K Kelvin$  \\
+		$k_B$ & Boltzmann Konstante & $\frac{J}{K}$ \\
+		\bottomrule
+	\end{tabu}
+\end{tabbing}
+
+
+\subsection{Äquipartitionstheorem}
+\begin{tabbing}
+	\begin{tabu} to \linewidth {l X l X}
+		\toprule
+		Wärmekapazität & $C = \frac{f}{2}Nk_B = \frac{f}{2}nR$  & 
+		& \\
+	\end{tabu}
+\end{tabbing}
+
+\begin{tabbing}
+	\begin{tabu} to \linewidth {l X l}
+		Variable & Bedeutung & SI-Einheit \\
+		\midrule
+		$f$ & Anzahl Freiheitgrade bei Molekülen ($x,y,z = 3$) &  \\
+		$f$ & Anzahl Freiheitgrade kristalliner Festkörper ($6$) &  \\
+		\bottomrule
+	\end{tabu}
+\end{tabbing}
+
+
+\section{Elektrizitätslehre}
+\subsection{Elektrischer Stromkreis}
+\begin{tabbing}
+	\begin{tabu} to \linewidth {l X l X}
+		\toprule
+		Stromstärke & $I = \frac{\Delta Q}{\Delta t}$ & 
+		Wiederstand & $R = \frac{U}{I}$ \\
+		Ohmsches Gesetz & $U = R \cdot I$ & 
+		Wiederstand & $R = \frac{U}{I}$ \\
+		Elektrische Leistung & $P = UI$ & 
+		Elektrische Arbeit & $W = UI\Delta t$ \\
+		Stromkosten & $K = W \cdot T$ & \\
+	\end{tabu}
+\end{tabbing}
+
+\begin{tabbing}
+	\begin{tabu} to \linewidth {l X l}
+		Variable & Bedeutung & SI-Einheit \\
+		\midrule
+		$U$ & Spannung & $V$ \\
+		$R$ & Wiederstand & $\Omega$ \\
+		$I$ & Stromstärke & $A$ \\
+		$P$ & Leistung & $W$ \\	
+		$W$ & Arbeit & $Ws / kwH$ \\
+		$T$ & Tarif & $\frac{Fr.}{kWh}$ \\
+		$K$ & Kosten & $Fr.$ \\
+		\bottomrule
+	\end{tabu}s
+\end{tabbing}
+
+
+\end{multicols}
+
+\end{document}
